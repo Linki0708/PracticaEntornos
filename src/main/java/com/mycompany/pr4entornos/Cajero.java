@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pr4entornos;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author loren
- */
 public class Cajero {
 
     String n;
@@ -17,6 +9,12 @@ public class Cajero {
     double t;
     ArrayList<Producto> ps;
 
+    /**
+     * Constructor principal para crear cajero
+     *
+     * @param n Guarda los nombre de los clientes
+     *
+     */
     public Cajero(String n) {
         this.n = n;
         this.c = 0;
@@ -24,14 +22,28 @@ public class Cajero {
         this.ps = new ArrayList<>();
     }
 
+    /**
+     * Metodo que guarda los productos en la lista ps
+     *
+     * @param p objeto que representa los productos
+     */
     public void ANADIRPRODUCTO(Producto p) {
         ps.add(p);
     }
 
+    /**
+     * Metodo que elimina los productos de la lista ps
+     *
+     * @param p objeto que representa los productos
+     */
+
     public void eliminarProDUCTO(Producto p) {
         ps.remove(p);
     }
-
+/**
+ * Metodo cobrar que nos aplica el iva a los productos y va creando los tickets e introduciendolos dentro de la variable t y contando la cantidad de 
+ * clientes
+ */
     public void cobrar() {
         double subt = 0;
         for (Producto p : ps) {
@@ -56,7 +68,9 @@ public class Cajero {
         t = t + tot;
         ps.clear();
     }
-
+/**
+ * Metodo que imprime el nombre del cajero,la cantidad de tickets emitidos, el total facturado y el total de iva recaudado usando un contador
+ */
     public void cierreCaja() {
         double ivaRec = t - (t / (1 + 0.21));
 
@@ -68,15 +82,24 @@ public class Cajero {
         System.out.println("IVA recaudado:    " + String.format("%.2f", ivaRec) + " EUR");
         System.out.println("==========================");
     }
-
+/**
+ * Funcion que nos devuelve un boolean dependiendo de si la lista de tickets esta vacia
+ * @return 
+ */
     public boolean ticketVacio() {
         return ps.isEmpty();
     }
-
+/**
+ * Funcion que devuelve la cantidad de tickets emitidos
+ * @return 
+ */
     public int getTicketsEmitidos() {
         return c;
     }
-
+/**
+ * Funcion que devuelve el total de dinero recaudado en el dia
+ * @return 
+ */
     public double getTotalDia() {
         return t;
     }
