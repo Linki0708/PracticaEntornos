@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.pr4entornos;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author loren
- */
 public class Cajero {
 
     
@@ -19,6 +11,7 @@ public class Cajero {
     private double ganacias_totales;
     private ArrayList<Producto> productos;
 
+<<<<<<< HEAD
     public Cajero(String nombre) {
         this.nombre = nombre;
         this.contador_ticket = 0;
@@ -32,8 +25,43 @@ public class Cajero {
 
     public void eliminarProDUCTO(Producto producto) {
         getProductos().remove(producto);
+=======
+    /**
+     * Constructor principal para crear cajero
+     *
+     * @param n Guarda los nombre de los clientes
+     *
+     */
+    public Cajero(String n) {
+        this.n = n;
+        this.c = 0;
+        this.t = 0;
+        this.ps = new ArrayList<>();
     }
 
+    /**
+     * Metodo que guarda los productos en la lista ps
+     *
+     * @param p objeto que representa los productos
+     */
+    public void ANADIRPRODUCTO(Producto p) {
+        ps.add(p);
+    }
+
+    /**
+     * Metodo que elimina los productos de la lista ps
+     *
+     * @param p objeto que representa los productos
+     */
+
+    public void eliminarProDUCTO(Producto p) {
+        ps.remove(p);
+>>>>>>> 80cd750103213e94fb4b0e96bbae9141d4e31684
+    }
+/**
+ * Metodo cobrar que nos aplica el iva a los productos y va creando los tickets e introduciendolos dentro de la variable t y contando la cantidad de 
+ * clientes
+ */
     public void cobrar() {
         double precio_sin_iva = 0;
         for (Producto producto : getProductos()) {
@@ -58,8 +86,14 @@ public class Cajero {
         setGanacias_totales(getGanacias_totales() + total);
         getProductos().clear();
     }
+<<<<<<< HEAD
     private static final double porcentaje_iva = 0.21;
 
+=======
+/**
+ * Metodo que imprime el nombre del cajero,la cantidad de tickets emitidos, el total facturado y el total de iva recaudado usando un contador
+ */
+>>>>>>> 80cd750103213e94fb4b0e96bbae9141d4e31684
     public void cierreCaja() {
         double Iva_recaudado = getGanacias_totales() - (getGanacias_totales() / (1 + porcentaje_iva));
 
@@ -71,6 +105,7 @@ public class Cajero {
         System.out.println("IVA recaudado:    " + String.format("%.2f", Iva_recaudado) + " EUR");
         System.out.println("==========================");
     }
+<<<<<<< HEAD
     /**
      * @return the contador_ticket
      */
@@ -113,14 +148,26 @@ public class Cajero {
         this.productos = productos;
     }
 
+=======
+/**
+ * Funcion que nos devuelve un boolean dependiendo de si la lista de tickets esta vacia
+ * @return 
+ */
+>>>>>>> 80cd750103213e94fb4b0e96bbae9141d4e31684
     public boolean ticketVacio() {
         return getProductos().isEmpty();
     }
-
+/**
+ * Funcion que devuelve la cantidad de tickets emitidos
+ * @return 
+ */
     public int getTicketsEmitidos() {
         return getContador_ticket();
     }
-
+/**
+ * Funcion que devuelve el total de dinero recaudado en el dia
+ * @return 
+ */
     public double getTotalDia() {
         return getGanacias_totales();
     }
